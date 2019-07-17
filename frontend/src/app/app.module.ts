@@ -7,6 +7,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactCreateComponent } from './contact-create/contact-create.component';
 import { ContactUpdateComponent } from './contact-update/contact-update.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import {routingModule} from './routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    routingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
