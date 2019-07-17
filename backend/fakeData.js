@@ -20,3 +20,5 @@ for (let i = 1; i <= 200; i++) {
         title: faker.name.title()
     });
 }
+
+console.log(JSON.stringify(database));

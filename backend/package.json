@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "generate": "node fakeData.js > database.json"
   },
   "keywords": [],
