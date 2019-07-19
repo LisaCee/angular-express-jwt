@@ -9,7 +9,8 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { routingModule } from './routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from 'selenium-webdriver/http';
+import { MatToolbarModule, MatButtonModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -19,8 +20,8 @@ import { HttpClient } from 'selenium-webdriver/http';
     ContactUpdateComponent,
     ContactDetailComponent
   ],
-  imports: [BrowserModule, routingModule, HttpClientModule],
+  imports: [BrowserModule, routingModule, HttpClientModule, MatButtonModule, MatToolbarModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
