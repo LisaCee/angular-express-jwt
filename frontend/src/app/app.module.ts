@@ -17,6 +17,7 @@ import { MatToolbarModule, MatButtonModule, MatFormField, MatFormFieldModule, Ma
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { JwtModule } from '@auth0/angular-jwt';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { JwtModule } from '@auth0/angular-jwt';
     ContactListComponent,
     ContactCreateComponent,
     ContactUpdateComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    LoginComponent
   ],
   imports: [BrowserModule,
     routingModule,
