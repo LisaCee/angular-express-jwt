@@ -16,6 +16,8 @@ import { MatToolbarModule, MatButtonModule, MatFormField, MatFormFieldModule, Ma
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { JwtModule } from '@auth0/angular-jwt';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('access_token');
+        },
+        whitelistedDomains: ['localhost: 3000'],
+        blacklistedRoutes: ['http://localhost:3000/auth/login']
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
