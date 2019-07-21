@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Contact } from '../contact';
+import { ContactDetailComponent } from '../contact-detail/contact-detail.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/';
 
 @Component({
   selector: 'app-contact-list',
@@ -10,7 +12,8 @@ import { Contact } from '../contact';
 export class ContactListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'email', 'country', 'title', 'actions'];
   dataSource = [];
-  constructor(private apiService: ApiService) { }
+
+  constructor(private apiService: ApiService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.apiService.getContacts().subscribe((res) => {
@@ -40,6 +43,16 @@ export class ContactListComponent implements OnInit {
     this.apiService.getContacts(this.apiService.last).subscribe((res) => {
       console.log(res.body);
       this.dataSource = res.body;
+    });
+  }
+  openDialog(contact: Contact): void {
+    console.log(contact);
+    const MatDialogRef = this.dialog.open(ContactDetailComponent, {
+      width: '400px',
+      data: contact
+    });
+    MatDialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }
